@@ -2,7 +2,7 @@
 {% block imports %}
    <script type="text/javascript" src="/static/js/crearLote.js"></script>
 Registrar Nuevo Producto
-
+<!-- -->
     <script type="text/javascript">
     $(document).ready(function(){
         $( "#inpt-producto" ).focus();
@@ -52,8 +52,6 @@ Registrar Nuevo Producto
         });
   });
 </script>
-
-<!-- SE AH MODIFICADO EL FOR DE CADA LABEL-->
 <style>
     ul.ui-autocomplete {
         z-index: 1100;
@@ -95,23 +93,24 @@ Registrar Nuevo Producto
                 <br>
                 <input type="text" name="inpt-producto" id="inpt-producto" required="" class="form-control" maxlength="45">
                 <br>
-                <label for="id_codigo">Código:</label>
+                <label for="id_nombre">Código:</label>
                 <br>
                 <input type="text" name="codigo" id="codigo" required="" class="form-control" disabled="disabled">
                 <br>
-                <label for="id_precio">Precio:</label>
+                <label for="id_nombre">Precio:</label>
                 <br>
                 <input type="number" name="precio" id="precio" required="" class="form-control" >
                 <br>
-                <label for="id_cantidad">Cantidad:</label>
+                <label for="id_nombre">Cantidad:</label>
                 <br>
                 <input type="number" name="cantidad" id="cantidad" required="" class="form-control" >
                 <br>
 
                 <label for="">Unidad Principal</label></br>
-                <select class="form-control" id="cmbPresentacionPrincipal" name="cmbPresentacionPrincipal" required="">
+                <select class="form-control" id="cmbPresentacionPrincipal" name="cmbPresentacionPrincipal" onchange= "document.gerElementById()" required="">
                         <option value=""> </option>
                         {% for presentacion in presentaciones %}
+                            
                             <option value="{{presentacion.id}}">
                             {{presentacion.nombre}}
                             </option>
