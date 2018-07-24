@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block imports %}
+Clientes
+
+ <script type="text/javascript">
+
+//evento click para boton editar
+
+$(document).on('Click', '.btn-editar', function(e){
+
+	e.preventDefault();
+	 var row=$(this).paren().parent()[0];
+	 console.log(row);
+});
+
+
+</script>
+{% endblock %}
+
+{% block title %}
+Clientes
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title">Lista de Ventas</h3>
+				{% load widget_tweaks %}
+				{% csrf_token %}
+					<div class="form-group">
+					<table id="tCamiones"  class="table">	
+						<thead>
+	                        <tr>
+	                            <th>#id</th>
+	                            <th>Fecha</th>
+	                            <th>Monto</th>
+	                            <th>Estado</th>
+	                            <th>Pedido</th>
+	                            <th>Cliente</th>
+	                        </tr>
+	                    </thead>
+				    {% for oVenta in oVentas %}
+				    <tr>
+				    	<td>{{ forloop.counter }}</td>
+				    	<td>{{oVenta.fecha}}</td>
+				    	<td>{{oVenta.monto}}</td>
+				    	<td>{{oVenta.nrecibo}}</td>
+				    	<td>{{oVenta.estado}}</td>
+				    	<td>{{oVenta.pedido}}</td>
+				    	<td>{{oVenta.cliente}}</td>
+				    	<td>
+				    		<a href="/Venta/detalle/{{oVenta.id}}/"><button type="button" class="btn btn-info">Ver</button> </a>
+				    		<a href="/Venta/editar/{{oVenta.id}}/"><button type="button" class="btn btn-primary btn-edit">Editar</button></a>
+				    		<a href="/Venta/eliminar/{{oVenta.id}}/"><button type="button" class="btn btn-danger btn-delete">Eliminar</button></a>
+				    	</td>
+				    </tr>
+
+				    {% endfor %}
+
+					</table>
+				    <br>	
+	    			<a href="/venta/nuevo/"><button type="button" class="btn btn-success">Nueva Venta</button> </a>
+ 
+			</div>
+	    </div>
+    </div>  
+{% endblock %}
