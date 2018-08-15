@@ -18,12 +18,13 @@ def nuevoVenta(request):
         Datos = request.POST
         return render(request, 'venta/nuevo.html', {})
 
-def ListarVenta(request):
+def ListarVentas(request):
     if request.method == 'POST':
         return render(request, 'venta/listar.html')
     else:
         oVenta = Venta.objects.filter(estado = True)
         return render(request, 'venta/listar.html', {"oVenta": oVenta})
+
 
 """
 @csrf_exempt

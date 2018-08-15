@@ -13,7 +13,7 @@ from django.db import models
 #   Usuario: Erick Sulca, Ulises Bejar
 #   Fecha: 04/06/18
 #   Última modificación:
-#   Descripción: crear modelo Error
+#   Descripción: crear modelo Error, etc
 ###########################################################
 
 class Almacen(models.Model):

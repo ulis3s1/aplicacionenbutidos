@@ -53,6 +53,7 @@ urlpatterns = [
     url(r'^Caja/cierre/$', registrarCierrecaja),
     url(r'^Caja/movimiento/$', registrarOperacion),
 
+    ################## Venta #######################
     url(r'^Venta/nuevo/$', registrarPedido),
 
     ################## Producto #######################
@@ -69,6 +70,7 @@ urlpatterns = [
     
     url(r'^Precios/getPrecios/$', getPrecios),
     #url(r'^pruebaExcel/$', IngresarPrecios),
+
     ################## Cliente #######################
     url(r'^Cliente/nuevo/$', nuevoCliente),
     url(r'^Cliente/detalle/(?P<cliente_id>\d+)/$', detalleCliente),
@@ -79,10 +81,12 @@ urlpatterns = [
     
     ################## Pedidos #######################
 
-    url(r'^Pedido/nuevo/$', IngresarPrecios),
+    url(r'^Pedido/nuevo/$', registrarPedido),
     url(r'^Pedido/listar/$', ListarPedidos),
     url(r'^Pedido/resumen/$', ResumenPedidos),
     url(r'^Pedido/detalle/(?P<pedido_id>\d+)/$', DetallePedido),
+    url(r'^Pedido/editar/(?P<pedido_id>\d+)/$', editarPedido),
+    url(r'^Pedido/eliminar/(?P<pedido_id>\d+)/$', eliminarPedido),
     url(r'^Pedido/actualizar/$', IngresarPrecios),
     url(r'^Pedido/reporte/$', IngresarPrecios),
     url(r'^Pedido/buscar/$', IngresarPrecios),
@@ -115,15 +119,25 @@ urlpatterns = [
     url(r'^error/registrar/$', registrarError),
 
 
-#######################VENTAS##############################
+#######################Ventas##############################
 
     url(r'^venta/nuevo/$', nuevoVenta),
-    url(r'^venta/listar/$', ListarVenta),
+    url(r'^venta/listar/$', ListarVentas),
     #url(r'^Producto/detalle/(?P<producto_id>\d+)/$', detalleProducto),
     #url(r'^Producto/editar/(?P<producto_id>\d+)/$', editarProducto),
 
-    url(r'^nuevo/lote/$', nuevoLote),
+    url(r'^Lote/nuevo/$', nuevoLote),
     #####################################################
 
+#######################Rutas##############################
+
+    #url(r'^Ruta/nuevo/$', nuevoVenta),
+    #url(r'^Ruta/listar/$', ListarVenta),
+
+#######################Información y Reportes##############################
+    
+    #url(r'^Reporte/almacen/$', reporteAlmacen),
+    #url(r'^Reporte/caja/$', reporteCaja),
+    #url(r'^Reporte/ventas/$', reporteVentas),
 
 ]

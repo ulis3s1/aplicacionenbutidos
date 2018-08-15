@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block imports %}
-<script type="text/javascript" src="/static/js/crearVenta.js"></script>
+<script type="text/javascript" src="/static/js/crearPedido.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $( "#inpt-producto" ).focus();
@@ -87,7 +87,12 @@ Nueva Venta
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Nueva Venta</h3>
+                <h3 class="box-title">Nuevo Pedido</h3>
+
+                <label for="id_cliente">Cliente:</label>
+                <br>
+                <input type="text" name="cliente" id="cliente" required="" class="form-control" maxlength="45">
+                <br>
                 <label for="id_nombre">Producto:</label>
                 <br>
                 <input type="text" name="inpt-producto" id="inpt-producto" required="" class="form-control" maxlength="45">
@@ -96,7 +101,7 @@ Nueva Venta
                 <br>
                 <input type="text" name="codigo" id="codigo" required="" class="form-control" disabled="disabled">
                 <br>
-                <!--<label for="id_nombre">Precio:</label>
+                <!-- <label for="id_nombre">Precio:</label> 
                 <br>
                 <input type="number" name="precio" id="precio" required="" class="form-control">
                 <br>-->
@@ -130,7 +135,7 @@ Nueva Venta
                             <br>
                             <br>
 
-                        <button id="bt_GenerarVenta" class="btn btn-success">Generar Pedido</button>
+                        <button id="bt_GenerarVenta" class="btn btn-success">Generar Venta</button>
 
                     </div>
 
